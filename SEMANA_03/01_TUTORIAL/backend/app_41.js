@@ -40,7 +40,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
 	console.log(sql);
 	db.run(sql, [],  err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}	
 	});
 	res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
@@ -73,7 +73,7 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}
 		res.end();
 	});
@@ -90,7 +90,7 @@ app.get('/removeUsuario', urlencodedParser, (req, res) => {
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
-		    throw err;
+			throw err;
 		}
 		res.write('<p>USUARIO REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
 		res.end();
@@ -99,5 +99,5 @@ app.get('/removeUsuario', urlencodedParser, (req, res) => {
 });
 
 app.listen(port, hostname, () => {
-  console.log(`Servidor rodando em http://${hostname}:${port}/`);
+console.log(`Servidor rodando em http://${hostname}:${port}/`);
 });
