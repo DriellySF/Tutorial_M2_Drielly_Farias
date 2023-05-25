@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      fetch("/coletores")
+        .then((response) => {
+          return response.json();
+        })
+        .then((coletores) => {
+          var saida = "";
+          coletores.forEach((elemento) => {
+            saida += "<h3>" + elemento.NOME_COLETOR + "</h3";
+          });
+          document.getElementById("lista_coletores").innerHTML = saida;
+        });
+    </script>
+  </head>
+  <body>
+    <div id="lista_coletores"></div>
+    <h1>lista de coletores</h1>
+  </body>
+</html>
