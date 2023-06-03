@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function trocarFundo() {
+        var tabela = document.getElementById("myTabela");
+        tabela.style.backgroundColor = "red";
+    }
+
+    function novaLinha() {
+        var tabela = document.getElementById("myTabela");
+        var novaLinha = document.createElement('tr');
+        novaLinha.innerHTML = "<td>Coluna</td>";
+        tabela.appendChild(novaLinha);
+    }
+    </script>
+</head>
+<body>
+    <table id="myTabela" border="3">
+        <tr>
+            <td>eu</td>
+            <td>odeio</td>
+            <td>javascript</td>
+        </tr>
+        <tr>
+            <td>eu</td>
+            <td>odeio</td>
+            <td>html</td>
+        </tr>
+        <tr>
+            <td>eu</td>
+            <td>odeio</td>
+            <td>css nem tanto</td>
+        </tr>
+
+    <button onclick= "trocarFundo()"> Trocar cor de fundo</button>
+    <button onclick="novaLinha()"> adc coluna</button>
+
+</body>
+</html>

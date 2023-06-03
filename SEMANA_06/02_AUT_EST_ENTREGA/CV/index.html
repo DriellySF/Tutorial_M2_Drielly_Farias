@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  </head>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    </head>
   <body>
     <main class="main-content">
       <section class="left-section">
@@ -25,7 +27,8 @@
           </div>
           <div class="contact-info">
             <h3 class="main-title"> Contato</h3>
-            <ul>
+            <button id="mostrarContato">mostrar</button>
+            <ul id="contato">
               <li>
                 <i class="fa fa-phone"></i>
                 +55(11)959668530
@@ -46,7 +49,8 @@
           </div>
           <div class="skills-section">
             <h3 class="main-title">Habilidades</h3>
-            <ul>
+            <button id="mostrarHab">mostrar</button>
+            <ul id="hab">
                 <h5 class="skill-title"> INGLÊS</h5>
                 <div class="progress-bar">
                   <div class="progress ing-progress"></div>
@@ -79,14 +83,16 @@
         <div class="right-main-content">
           <section class="about sect">
             <h2 class="right-title">Sobre Mim</h2>
-            <p class="para">
+            <button id="mostrarSob">mostrar</button>
+            <p class="para" id="sob">
               Sou estudante de ciência da computação com conhecimentos básicos em GDScript, CSS e HTML. Além disso, estou
               familiarizada com a metodologia ágil Scrum. Essas habilidades me permitem criar e desenvolver projetos de software e trabalhar de forma colaborativa.
             </p>
           </section>
           <section class="experience sect">
             <h2 class="right-title"> Experiência</h2>
-            <div class="timeline">
+            <button id="mostrarExp">mostrar</button>
+            <div class="timeline" id="exp">
               <div class="left-tl-content">
                 <h5 class="tl-title"> Mini game - UFAL</h5>
                 <p class="para">2023</p>
@@ -98,7 +104,7 @@
                 </div>
               </div>
             </div>
-            <div class="timeline">
+            <div class="timeline" id="exp2">
               <div class="left-tl-content">
                 <h5 class="tl-title"> APlicação Web</h5>
                 <p class="para">2023</p>
@@ -113,7 +119,8 @@
           </section>
           <section class="education sect">
             <h2 class="right-title">Formação</h2>
-            <div class="timeline">
+            <button id="mostrarFor">mostrar</button>
+            <div class="timeline" id="for1">
               <div class="left-tl-content">
                 <h5 class="tl-title"> INTELI</h5>
                 <p class="para">2023-2026</p>
@@ -125,7 +132,7 @@
                 </div>
               </div>
             </div>
-            <div class="timeline">
+            <div class="timeline" id="for2">
               <div class="left-tl-content">
                 <h5 class="tl-title"> Colégio Objetivo</h5>
                 <p class="para">2018-2022</p>
@@ -141,5 +148,46 @@
         </div>
       </section>
     </main>
+        <script>
+          //$('body').fadeOut("4000").fadeIn();
+          $('#contato').hide()
+          $('#mostrarContato').on("click", botao)
+        function botao() {
+          $('#contato').show()
+          }
+
+
+          $('#hab').hide()
+          $('#mostrarHab').on("click", botao2)
+        function botao2() {
+          $('#hab').show()
+            }
+
+
+          $('#sob').hide()
+          $('#mostrarSob').on("click", botao3)
+        function botao3() {
+          $('#sob').show()
+          }
+
+
+          $('#exp').hide()
+          $('#exp2').hide()
+          $('#mostrarExp').on("click", botao4)
+        function botao4() {
+          $('#exp').show()
+          $('#exp2').show()
+           }
+
+        
+            $('#for1').hide()
+            $('#for2').hide()
+            $('#mostrarFor').on("click", botao5)
+            function botao5() {
+              $('#for1').show()
+              $('#for2').show()
+            }
+
+        </script>
   </body>
 </html>
