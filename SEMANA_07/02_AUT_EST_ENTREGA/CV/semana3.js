@@ -3,12 +3,13 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const localhost = '127.0.0.1';
 const sqlite3 = require('sqlite3').verbose();
-const PATH = "./frontend/curriculo.db";
+const PATH = "curriculo.db";
+const path = require('node:path');
 
 const app = express();
 app.use(express.json());
 
-app.use(express.static("../frontend/"));
+app.use('/static', express.static('public'))
 
 // LETRA R NO CRUD 
 app.get('/listaFormacao', (req, res) => {
@@ -42,21 +43,16 @@ app.listen(3000, localhost, () => {
 });
 
 
-// let btn = document.querySelector("#btn");
-// let list = document.querySelector("#list");
-
-// btn.addEventListener("click", function(){
-//     fetch('http://localhost:3000/formacao')
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function(response){
-//         response.data.forEach(function(TblFORMACAO){
-//             let item =document.createElement("li");
-
-//             item.innerHTML="'<p>'+TblFORMACAO.DESCRICAO '</p>'";
-
-//             list.appendChild(item);
-//         })
-//     })
-// })
+app.get('/', function(req, res){
+    var options = {
+        root: path.join(__dirname)
+    };
+     
+    var fileName = './public/index.html';
+    res.sendFile(fileName, options, function (err) {
+        if (err) {
+            next(err);
+        } else {
+        }
+    });
+});

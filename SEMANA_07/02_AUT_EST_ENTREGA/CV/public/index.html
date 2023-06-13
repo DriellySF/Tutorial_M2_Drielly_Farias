@@ -8,12 +8,11 @@
     <title>Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="./static/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
     </head>
   <body>
     <main class="main-content">
@@ -21,7 +20,7 @@
         <div class="left-content">
           <div class="profile">
             <div class="image">
-              <img src="foto.jpg" alt="foto">
+              <img src="./static/foto.jpg" alt="foto">
             </div>
             <h2 class="name">Drielly Farias</h2>
             <p class="career"> Estudante</p>
@@ -89,10 +88,8 @@
               Sou estudante de ciência da computação com conhecimentos básicos em GDScript, CSS e HTML. Além disso, estou
               familiarizada com a metodologia ágil Scrum. Essas habilidades me permitem criar e desenvolver projetos de software e trabalhar de forma colaborativa.
             </p>
-            <li id="list">
-              <ul></ul>
-            </li>
-            <button id="btn">puxar</button>
+            <button id="puxar">puxar</button>
+            <p class="para" id="sobre"></p>
           </section>
           <section class="experience sect">
             <h2 class="right-title"> Experiência</h2>
@@ -193,9 +190,39 @@
               $('#for2').show()
             }
 
+            // let campoSobre = document.getElementById("sob");
+            // const urlBase = "http://localhost:3000/"
+            // const currentEndpoint = 'formacao'
 
-            const url = '/';
-            fetch(url)
+            // fetch(urlBase+currentEndpoint)
+            // .then(res => res.json()) //o then pega o resultado da função anterior
+            // .then(data => {// e obriga a esperar o passo anterior ser concluído antes de voltar
+            //   console.log("Entrei aqui")
+            //   console.log(data)
+            //   //campoSobre.innerHTML = data.DESCRICAO // o inner leva pra dentro do html
+            // })
+
+            // $('#puxar').on("click", puxardb)
+            // function puxardb() {
+            //   campoSobre.innerHTML = data.DESCRICAO // o inner leva pra dentro do html
+            //   }
+
+
+              $('#puxar').on('click', function () {
+                  const campoSobre = document.getElementById("sobre");
+                  const urlBase = "http://localhost:3000/";
+                  const currentEndpoint = 'formacao';
+                  fetch(urlBase + currentEndpoint)
+                    .then(res => res.json())
+                    .then(data => {
+                      console.log(data);
+                      campoSobre.innerHTML = data.object.DESCRICAO;
+                    });
+                });
+
+            // fetch é o mais usado; async await é mais moderno 
+            // o fetch tem a promise que é tipo uma loteria. Se der certo, 
+            //ele faz a requisição, senão, ele vai para o then
 
         </script>
   </body>
