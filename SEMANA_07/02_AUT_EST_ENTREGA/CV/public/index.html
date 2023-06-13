@@ -83,11 +83,11 @@
         <div class="right-main-content">
           <section class="about sect">
             <h2 class="right-title">Sobre Mim</h2>
-            <button id="mostrarSob">mostrar</button>
+            <!-- <button id="mostrarSob">mostrar</button>
             <p class="para" id="sob">
               Sou estudante de ciência da computação com conhecimentos básicos em GDScript, CSS e HTML. Além disso, estou
               familiarizada com a metodologia ágil Scrum. Essas habilidades me permitem criar e desenvolver projetos de software e trabalhar de forma colaborativa.
-            </p>
+            </p> -->
             <button id="puxar">puxar</button>
             <p class="para" id="sobre"></p>
           </section>
@@ -155,30 +155,30 @@
           $('#contato').hide()
           $('#mostrarContato').on("click", botao)
         function botao() {
-          $('#contato').show()
+          $('#contato').toggle()
           }
 
 
           $('#hab').hide()
           $('#mostrarHab').on("click", botao2)
         function botao2() {
-          $('#hab').show()
+          $('#hab').toggle()
             }
 
 
-          $('#sob').hide()
-          $('#mostrarSob').on("click", botao3)
-        function botao3() {
-          $('#sob').show()
-          }
+        //   $('#sob').hide()
+        //   $('#mostrarSob').on("click", botao3)
+        // function botao3() {
+        //   $('#sob').show()
+        //   }
 
 
           $('#exp').hide()
           $('#exp2').hide()
           $('#mostrarExp').on("click", botao4)
         function botao4() {
-          $('#exp').show()
-          $('#exp2').show()
+          $('#exp').toggle()
+          $('#exp2').toggle()
            }
 
         
@@ -186,27 +186,9 @@
             $('#for2').hide()
             $('#mostrarFor').on("click", botao5)
             function botao5() {
-              $('#for1').show()
-              $('#for2').show()
+              $('#for1').toggle()
+              $('#for2').toggle()
             }
-
-            // let campoSobre = document.getElementById("sob");
-            // const urlBase = "http://localhost:3000/"
-            // const currentEndpoint = 'formacao'
-
-            // fetch(urlBase+currentEndpoint)
-            // .then(res => res.json()) //o then pega o resultado da função anterior
-            // .then(data => {// e obriga a esperar o passo anterior ser concluído antes de voltar
-            //   console.log("Entrei aqui")
-            //   console.log(data)
-            //   //campoSobre.innerHTML = data.DESCRICAO // o inner leva pra dentro do html
-            // })
-
-            // $('#puxar').on("click", puxardb)
-            // function puxardb() {
-            //   campoSobre.innerHTML = data.DESCRICAO // o inner leva pra dentro do html
-            //   }
-
 
               $('#puxar').on('click', function () {
                   const campoSobre = document.getElementById("sobre");
@@ -216,13 +198,9 @@
                     .then(res => res.json())
                     .then(data => {
                       console.log(data);
-                      campoSobre.innerHTML = data.object.DESCRICAO;
+                      campoSobre.innerHTML = data[0].DESCRICAO;
                     });
                 });
-
-            // fetch é o mais usado; async await é mais moderno 
-            // o fetch tem a promise que é tipo uma loteria. Se der certo, 
-            //ele faz a requisição, senão, ele vai para o then
 
         </script>
   </body>
